@@ -22,7 +22,7 @@ Before running the script, ensure that:
    - Send a message to your bot (e.g., “Hi”).
    - Get chat ID: Open https://api.telegram.org/bot<your_bot_token>/getUpdates.
      Find “chat”:{“id”:<your_chat_id> (e.g., <your_chat_id>).
-2. **Configure Telegram settings:**:
+2. **Configure Telegram settings**:
    - Copy .env.example to .env:
    ```bash
    cp .env.example .env
