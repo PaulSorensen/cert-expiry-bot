@@ -1,0 +1,35 @@
+# paulsorensen.io .gitignore
+
+#Project specific
+cert_expiry_bot.txt
+
+# Sensitive config
+.env
+
+# Temporary files
+*~
+*.tmp
+*.swp
+*.bak
+.*.swp
+.*.swo
+
+# Logs
+*.log
+
+# Linux
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# macOS
+._*
+.DS_Store
+.LSOverride
+
+# Windows
+[Dd]esktop.ini
+ehthumbs.db
+ehthumbs_vista.db
+[Tt]humbs.db
