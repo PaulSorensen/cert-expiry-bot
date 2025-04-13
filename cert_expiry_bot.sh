@@ -3,8 +3,9 @@
 # Script Name   : Cert Expiry Bot
 # Author        : Paul Sørensen
 # Website       : https://paulsorensen.io
+# GitHub        : https://github.com/paulsorensen
 # Version       : 1.0
-# Last Modified : 2025/04/14 00:57:05
+# Last Modified : 2025/04/14 01:04:49
 #
 # Description:
 # Monitors SSL certificates for domains listed in cert_expiry_bot.txt and sends
