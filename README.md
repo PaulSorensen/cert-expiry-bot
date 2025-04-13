@@ -38,6 +38,12 @@ Before running the script, ensure that:
      ```
    
    - Edit .env and add your `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`.
+   
+   - Secure .env
+     
+     ```bash
+     chmod 600 .env 
+     ```
 
 3. **Add domains to monitor**:
    

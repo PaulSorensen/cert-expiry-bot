@@ -1,34 +1,19 @@
 #!/bin/bash
 ################################################################################
-#  Script Name : Cert Expiry Bot
-#  Author      : Paul Sørensen
-#  Website     : https://paulsorensen.io
-#  GitHub      : https://github.com/paulsorensen
-#  Version     : 1.0
-#  Last Update : 10.04.2025
+# Script Name   : Cert Expiry Bot
+# Author        : Paul Sørensen
+# Website       : https://paulsorensen.io
+# Version       : 1.0
+# Last Modified : 2025/04/14 00:57:05
 #
-#  Description:
-#  Monitors SSL certificates for domains listed in cert_expiry_bot.txt and sends
-#  Telegram alerts if they expire within 14 or 7 days (configurable).
+# Description:
+# Monitors SSL certificates for domains listed in cert_expiry_bot.txt and sends
+# Telegram alerts if they expire within 14 or 7 days (configurable).
 #
-#  Usage:
-#  1. Set up a Telegram bot and add your bot token and chat ID to .env
-#     (copy .env.example, rename to .env, and edit:
-#     TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID).
-#  2. Add domains to cert_expiry_bot.txt (copy cert_expiry_bot.txt.example to
-#     cert_expiry_bot.txt and edit).
-#  3. Make the script executable: chmod +x cert_expiry_bot.sh
-#  4. Test the script: Set EXPIRATION_TIME_LONG to 90 in cert_expiry_bot.conf
-#     and run ./cert_expiry_bot.sh
-#  5. Schedule daily checks at 12:00 (noon): Add to cron (crontab -e):
-#     0 12 * * * /path/to/cert-expiry-bot/cert_expiry_bot.sh
+# Usage: Refer to README.md for details on how to use this script.
 #
-#  Configuration:
-#  - Adjust expiration thresholds (EXPIRATION_TIME_LONG, EXPIRATION_TIME_SHORT)
-#  in cert_expiry_bot.conf if needed, or keep it as is.
-#
-#  If you found this script useful, a small tip is appreciated ❤️
-#  https://buymeacoffee.com/paulsorensen
+# If you found this script useful, a small tip is appreciated ❤️
+# https://buymeacoffee.com/paulsorensen
 ################################################################################
 
 BLUE='\033[38;5;81m'
