@@ -5,8 +5,6 @@
 
 **Cert Expiry Bot** is a Bash script that monitors SSL certificates for multiple domains and sends notifications if they are expiring soon. It checks for expirations within 14 and 7 days (configurable), and includes error handling for invalid domains or missing certificates.
 
----
-
 ## Features
 
 - Monitors SSL certificates for multiple domains.
@@ -18,14 +16,10 @@
 - Includes error handling for invalid domains or missing certificates.
 - Easy configuration via `.env` and `.conf` files.
 
----
-
 ## Requirements
 
 - `curl` and `openssl` must be installed.
 - At least one notification method must be configured in `.env`.
-
----
 
 ## Usage
 
@@ -106,13 +100,9 @@
      0 12 * * * /path/to/cert_expiry_bot.sh
      ```
 
----
-
 ## Important Notes
 
 - The script uses openssl to check SSL certificates, so the domains must be accessible over HTTPS on port 443.
-
----
 
 ## Author
 
@@ -120,14 +110,10 @@
 [https://paulsorensen.io](https://paulsorensen.io)  
 [https://github.com/paulsorensen](https://github.com/paulsorensen)
 
----
-
 ## Support
 
 If you found this project useful, a small tip is appreciated ❤️  
 [https://buymeacoffee.com/paulsorensen](https://buymeacoffee.com/paulsorensen)
-
----
 
 ## License
 
