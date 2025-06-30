@@ -1,5 +1,5 @@
 # paulsorensen.io .gitignore
-# Last Modified : 2025/06/22 15:22:27
+# Last Modified : 2025/06/28 13:44:04
 
 # ─── PROJECT-SPECIFIC ───────────────────────────────────
 cert_expiry_bot.txt
@@ -64,6 +64,8 @@ obj/
 *.sln.docstates
 
 # ─── IDE / TOOLING ──────────────────────────────────────
-.idea/
-.vscode/
 *.code-workspace
+.idea/
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json

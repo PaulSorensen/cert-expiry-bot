@@ -4,8 +4,8 @@
 # Author        : Paul Sørensen
 # Website       : https://paulsorensen.io
 # GitHub        : https://github.com/paulsorensen
-# Version       : 1.1
-# Last Modified : 2025/06/24 03:02:24
+# Version       : 1.2
+# Last Modified : 2025/06/30 22:29:16
 #
 # Description:
 # Monitors SSL certificates for domains listed in cert_expiry_bot.txt and sends
@@ -25,6 +25,9 @@ echo ""
 
 # Define script directory
 SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
+
+# Set a safe PATH for cron
+export PATH="/usr/local/bin:/usr/bin:/bin"
 
 # Check for required configuration files
 if [ ! -f "$SCRIPT_DIR/.env" ]; then
@@ -70,18 +73,18 @@ fi
 # Helper function to send notifications
 send_notification() {
   if [ -n "$NTFY_TOPIC" ]; then
-    curl -s -H "Priority: high" -d "$MSG" "https://ntfy.sh/$NTFY_TOPIC" >/dev/null
+    curl -s -H "Priority: high" -d "$MSG" "https://ntfy.sh/$NTFY_TOPIC" >/dev/null 2>/dev/null
   fi
 
   if [ -n "$TELEGRAM_BOT_TOKEN" ] && [ -n "$TELEGRAM_CHAT_ID" ]; then
     curl -s \
       --data chat_id="$TELEGRAM_CHAT_ID" \
       --data-urlencode "text=$MSG" \
-      "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage?parse_mode=HTML" >/dev/null
+      "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage?parse_mode=HTML" >/dev/null 2>/dev/null
   fi
 
   if [ -n "$WEBHOOK_URL" ]; then
-    curl -s -X POST -H "Content-Type: text/plain" -d "$MSG" "$WEBHOOK_URL" >/dev/null
+    curl -s -X POST -H "Content-Type: text/plain" -d "$MSG" "$WEBHOOK_URL" >/dev/null 2>/dev/null
   fi
 }
 
@@ -191,9 +194,8 @@ $(for ERROR in "${ERROR_DOMAINS[@]}"; do echo "$ERROR"; done)
 EOT
     MSG+="$MSG_ERRORS"
   fi
-fi
 
-# Send notification if there’s anything to report
-if [ -n "$MSG" ]; then
-  send_notification
+  # Send notification
+  send_notification  
+
 fi
