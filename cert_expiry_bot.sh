@@ -5,7 +5,7 @@
 # Website       : https://paulsorensen.io
 # GitHub        : https://github.com/paulsorensen
 # Version       : 1.2
-# Last Modified : 2026/02/08 17:59:39
+# Last Modified : 2026/02/08 18:29:10
 #
 # Description:
 # Monitors SSL certificates for domains listed in cert_expiry_bot.txt and sends
@@ -98,8 +98,8 @@ while IFS= read -r DOMAIN; do
   # Strip leading/trailing spaces and tabs
   DOMAIN=$(echo "$DOMAIN" | sed -e 's/^[ \t]*//' -e 's/[ \t]*$//')
 
-  # Skip empty lines
-  [ -z "$DOMAIN" ] && continue
+  # Skip empty or commented lines
+  [[ -z "$DOMAIN" || "$DOMAIN" =~ ^# ]] && continue
 
   # Validate domain format (basic check for invalid symbols)
   if ! echo "$DOMAIN" | grep -qE '^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'; then
