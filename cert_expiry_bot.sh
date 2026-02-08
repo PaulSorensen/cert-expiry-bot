@@ -4,8 +4,8 @@
 # Author        : Paul Sørensen
 # Website       : https://paulsorensen.io
 # GitHub        : https://github.com/paulsorensen
-# Version       : 1.2
-# Last Modified : 2026/02/08 18:29:10
+# Version       : 1.3
+# Last Modified : 2026/02/08 18:41:27
 #
 # Description:
 # Monitors SSL certificates for domains listed in cert_expiry_bot.txt and sends
