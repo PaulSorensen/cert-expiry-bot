@@ -5,7 +5,7 @@
 # Website       : https://paulsorensen.io
 # GitHub        : https://github.com/paulsorensen
 # Version       : 1.2
-# Last Modified : 2025/06/30 22:29:16
+# Last Modified : 2026/02/08 17:59:39
 #
 # Description:
 # Monitors SSL certificates for domains listed in cert_expiry_bot.txt and sends
@@ -108,7 +108,7 @@ while IFS= read -r DOMAIN; do
   fi
 
   # Get certificate expiration date
-  EXPIRY=$(echo | openssl s_client -connect "$DOMAIN:443" -servername "$DOMAIN" 2>/dev/null | openssl x509 -noout -enddate | cut -d= -f2)
+  EXPIRY=$(echo | openssl s_client -connect "$DOMAIN:443" -servername "$DOMAIN" 2>/dev/null | openssl x509 -noout -enddate 2>/dev/null | cut -d= -f2)
 
   # Check if we got a valid expiry date
   if [ -z "$EXPIRY" ]; then
@@ -198,4 +198,9 @@ EOT
   # Send notification
   send_notification  
 
+fi
+
+# Completion message
+if [ -t 1 ]; then
+  echo "Done"
 fi
